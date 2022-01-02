@@ -1,0 +1,14 @@
+sudo: required 
+services:
+  - docker
+
+before_install:
+  - docker build -t aamrr/devopsssignment -f Dockerfile.dev .
+script:
+  - docker run aamrr/devopsssignment npm run test -- --coverage  
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_KEY
+  app: devopsssignment
+  on: master
