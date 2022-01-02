@@ -5,7 +5,8 @@ services:
 before_install:
   - docker build -t aamrr/devopsssignment -f Dockerfile.dev .
 script:
-  - docker run aamrr/devopsssignment npm run test -- --watch false  
+  - export CHROME_BIN='/usr/bin/chromium'
+  - docker run -d aamrr/devopsssignment
 
 deploy:
   provider: heroku
