@@ -5,7 +5,7 @@ services:
 before_install:
   - docker build -t aamrr/devopsssignment -f Dockerfile.dev .
 script:
-  - docker run -d -p 80:4200 aamrr/devopsssignment
+  - docker run -d aamrr/devopsssignment
 
 deploy:
   provider: heroku
